@@ -82,7 +82,6 @@ function msgCreate(content, channel) {
         }
     )
     .setImage(images[Math.floor(Math.random() * images.length)])
-    .setDescription(`<@${channel.guild.roles.cache.find((role) => role.name === "Guild Member")?.id || "Guild Member"}>`)
 
     if (parameters.length !== 0) {
         for (let obj of parameters) {
@@ -91,7 +90,7 @@ function msgCreate(content, channel) {
         }
     }
     
-    channel.send({ embeds: [embed] })
+    channel.send(`<@${channel.guild.roles.cache.find((role) => role.name === "Guild Member")?.id || "Guild Member"}>`, { embeds: [embed] })
 }
 
 setInterval(() => {
