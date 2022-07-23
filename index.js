@@ -92,7 +92,6 @@ function msgCreate(content, channel) {
     }
     
     channel.send({ embeds: [embed] })
-    channel.send({ })
 }
 
 setInterval(() => {
