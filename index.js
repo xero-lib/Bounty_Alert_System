@@ -1,4 +1,4 @@
-import { Client, GatewayIntentBits, EmbedBuilder, Message } from "discord.js";
+import { Client, GatewayIntentBits, EmbedBuilder, GuildChannel } from "discord.js";
 
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
@@ -26,7 +26,7 @@ let channels = [];
 /**
  * 
  * @param {string} content 
- * @param {Message} message 
+ * @param {GuildChannel} channel
  * @returns 
  */
 
@@ -80,7 +80,9 @@ function msgCreate(content, channel) {
             name: "Reward",
             value: `$${reward}`
         }
-    ).setImage(images[Math.floor(Math.random() * images.length)]);
+    )
+    .setImage(images[Math.floor(Math.random() * images.length)])
+    .setDescription(`<@${channel.guild.roles.cache.map((role) => { if (role.name === "Guild Member") return role })[0].id || "Guild Member"}>`)
 
     if (parameters.length !== 0) {
         for (let obj of parameters) {
@@ -90,6 +92,7 @@ function msgCreate(content, channel) {
     }
     
     channel.send({ embeds: [embed] })
+    channel.send({ })
 }
 
 setInterval(() => {
