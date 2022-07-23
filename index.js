@@ -168,7 +168,7 @@ client.on("messageCreate", async (message) => {
             }
             case "remdesc": {
                 if (content.split(' ').length === 1) { message.reply("Please provide a description to remove."); return; }
-                let desc = content.split(' ')[1];
+                let desc = content.split(' ').slice(1).join(' ');
                 if (descriptions.some((n) => n === desc)) {
                     descriptions.splice(descriptions.indexOf(desc), 1);
                     message.reply(`Removed "${desc}" from possible description list`);
@@ -193,7 +193,7 @@ client.on("messageCreate", async (message) => {
             }
             case "remimage": {
                 if (content.split(' ').length === 1) { message.reply("Please provide a link to remove."); return; }
-                let image = content.split(' ')[1];
+                let image = content.split(' ').slice(1).join(' ');
                 if (images.some((n) => n === image)) {
                     images.splice(images.indexOf(image), 1);
                     message.reply(`Removed "${image}" from possible images list`);
