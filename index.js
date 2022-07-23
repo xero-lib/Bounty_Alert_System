@@ -92,7 +92,7 @@ function msgCreate(content, channel) {
     }
     
     channel.send({ embeds: [embed] })
-    channel.send(`<@${channel.guild.roles.cache.find((role) => role.name === "Guild Member")?.id || "Guild Member"}>`)
+    channel.send(`<@&${channel.guild.roles.cache.find((role) => role.name === "Guild Member")?.id || "Guild Member"}>`)
 }
 
 setInterval(() => {
