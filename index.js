@@ -1,5 +1,4 @@
 import { Client, GatewayIntentBits, EmbedBuilder, Message } from "discord.js";
-import { guildId, token } from "./config.js";
 
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
@@ -241,4 +240,4 @@ client.on("messageCreate", async (message) => {
     }
 })
 
-client.login(token);
+client.login(process.env.TOKEN);
