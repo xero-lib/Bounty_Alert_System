@@ -1,4 +1,4 @@
-import { Client, GatewayIntentBits, EmbedBuilder, GuildChannel } from "discord.js";
+import { Client, GatewayIntentBits, EmbedBuilder, GuildChannel, ChatInputCommandInteraction } from "discord.js";
 
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
@@ -92,6 +92,7 @@ function msgCreate(content, channel) {
     }
     
     channel.send({ embeds: [embed] })
+    channel.send(`<@${channel.guild.roles.cache.find((role) => role.name === "Guild Member")?.id || "Guild Member"}>`)
 }
 
 setInterval(() => {
