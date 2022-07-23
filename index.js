@@ -82,7 +82,7 @@ function msgCreate(content, channel) {
         }
     )
     .setImage(images[Math.floor(Math.random() * images.length)])
-    .setDescription(`<@${channel.guild.roles.cache.map((role) => { if (role.name === "Guild Member") return role })[0]?.id || "Guild Member"}>`)
+    .setDescription(`${channel.guild.roles.cache.find((role) => role.name === "Guild Member")?.id || "Guild Member"}>`)
 
     if (parameters.length !== 0) {
         for (let obj of parameters) {
