@@ -123,7 +123,7 @@ client.on("messageCreate", async (message) => {
             case "remname": {
                 if (content.split(' ').length === 1) { message.reply("Please provide a name to remove from the list."); return; }
                 let name = content.split(' ').slice(1).join(' ');
-                if (names.some((n) => n === name)) {
+                if (names?.some((n) => n === name)) {
                     names.splice(names.indexOf(name), 1);
                     message.reply(`Removed "${name}" from possible names list`);
                 } else {
@@ -147,7 +147,7 @@ client.on("messageCreate", async (message) => {
             case "remloc": {
                 if (content.split(' ').length === 1) { message.reply("Please provide a location to remove from the location list."); return; }
                 let loc = content.split(' ').slice(1).join(' ');
-                if (locations.some((n) => n === loc)) {
+                if (locations?.some((n) => n === loc)) {
                     locations.splice(locations.indexOf(loc), 1);
                     message.reply(`Removed "${loc}" from possible locations list`);
                 } else {
@@ -171,7 +171,7 @@ client.on("messageCreate", async (message) => {
             case "remdesc": {
                 if (content.split(' ').length === 1) { message.reply("Please provide a description to remove."); return; }
                 let desc = content.split(' ').slice(1).join(' ');
-                if (descriptions.some((n) => n === desc)) {
+                if (descriptions?.some((n) => n === desc)) {
                     descriptions.splice(descriptions.indexOf(desc), 1);
                     message.reply(`Removed "${desc}" from possible description list`);
                 } else {
@@ -187,7 +187,7 @@ client.on("messageCreate", async (message) => {
             //IMAGES
             case "addimage": {
                 if (content.split(' ').length === 1) { message.reply("Please provide a link to add to the image list."); return; }
-                if (images.some((img) => img === image)) { message.reply("This image is already in the list."); return; }
+                if (images?.some((img) => img === image)) { message.reply("This image is already in the list."); return; }
                 let image = content.split(' ').slice(1).join(' ')
                 images.push(image);
                 message.reply(`Added "${image}" to the possible image list`);
@@ -196,7 +196,7 @@ client.on("messageCreate", async (message) => {
             case "remimage": {
                 if (content.split(' ').length === 1) { message.reply("Please provide a link to remove."); return; }
                 let image = content.split(' ').slice(1).join(' ');
-                if (images.some((n) => n === image)) {
+                if (images?.some((n) => n === image)) {
                     images.splice(images.indexOf(image), 1);
                     message.reply(`Removed "${image}" from possible images list`);
                 } else {
