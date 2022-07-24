@@ -187,8 +187,8 @@ client.on("messageCreate", async (message) => {
             //IMAGES
             case "addimage": {
                 if (content.split(' ').length === 1) { message.reply("Please provide a link to add to the image list."); return; }
-                if (images?.some((img) => img === image)) { message.reply("This image is already in the list."); return; }
                 let image = content.split(' ').slice(1).join(' ')
+                if (images?.some((img) => img === image)) { message.reply("This image is already in the list."); return; }
                 images.push(image);
                 message.reply(`Added "${image}" to the possible image list`);
                 return;
